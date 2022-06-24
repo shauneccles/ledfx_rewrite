@@ -22,23 +22,22 @@ jobs:
         install: |
             git
             make
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-go
-            mingw-w64-x86_64-cargo-c
-            mingw-w64-x86_64-pkg-config
-            mingw-w64-x86_64-portaudio
             mingw-w64-x86_64-waf
             mingw-w64-x86_64-ffmpeg
-    - name: Checkout Code
-      uses: actions/checkout@v3
-      with:
-        submodules: true
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-go
+            mingw-w64-x86_64-pkg-config
+            mingw-w64-x86_64-portaudio
     - name: Build Aubio
       run: |
         git clone https://github.com/aubio/aubio
         cd aubio
         waf configure
         waf build
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with:
+        submodules: true
     - name: Build LedFx
       run: |
 
