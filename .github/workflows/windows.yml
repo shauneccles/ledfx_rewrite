@@ -22,8 +22,7 @@ jobs:
         install: |
             git
             make
-
-            
+            base-devel
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-go
             mingw-w64-x86_64-pkg-config
