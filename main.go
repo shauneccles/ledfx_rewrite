@@ -127,9 +127,10 @@ func main() {
 	} else {
 		logger.Logger.WithField("context", "AudioBridge").Info("Initialised AudioBridge server")
 	}
-	defer bridgeServer.Br.Stop()
-	if err := bridgeServer.Br.StartLocalInput(config.GetLocalInput()); err != nil {
-		logger.Logger.WithField("context", "AudioBridge").Errorf("Error starting local input: %v\n", err)
+	defer br.Stop()
+	if err := br.StartLocalInput("2fb34793a593ebe3d8230f119ea136ef3fd5cec1"); err != nil { // get from config
+	// if err := br.StartLocalInput("f4185a940d2963464c8b1e331433d85709b71cb6"); err != nil { // get from config
+		logger.Logger.WithField("context", "AudioBridge").Fatalf("Error starting local input: %v\n", err)
 	}
 
 	// Start web server
