@@ -3,7 +3,7 @@
 #     branches: [main]
 #   workflow_dispatch:
 
-# name: Build Binaries
+name: Build Linux Binaries
 
 # defaults:
 #   run:
