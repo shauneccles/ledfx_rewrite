@@ -24,6 +24,7 @@ jobs:
             make
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-go
+            mingw-w64-x86_64-cargo-c
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-portaudio
             mingw-w64-x86_64-waf
@@ -35,10 +36,10 @@ jobs:
     - name: Get Aubio Files
       run: |
         git clone https://git.aubio.org/aubio/aubio aubio-src
-        mv aubio-src/src ${{github.workspace}}/aubio
+        mv aubio-src/src '${{github.workspace}}/aubio'
         pwd
-        ls ${{github.workspace}}/aubio
-        set CPLUS_INCLUDE_PATH=${{github.workspace}}/aubio/
+        ls '${{github.workspace}}/aubio'
+        set CPLUS_INCLUDE_PATH='${{github.workspace}}/aubio/'
     - name: Build LedFx
       run: |
         
