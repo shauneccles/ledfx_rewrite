@@ -7,13 +7,14 @@ name: Build Windows Binaries
 
 
 jobs:
- mingw-env:
+ build_win:
     runs-on: windows-latest
     defaults:
       run:
         shell: msys2 {0}
     steps:
-    - uses: msys2/setup-msys2@v2
+    - name: Set up Build Environment 
+      uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
         update: true
@@ -21,16 +22,12 @@ jobs:
             git
             make
             mingw-w64-x86_64-gcc
+            mingw-w64-go
     - name: Checkout Code
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Set up Go 1.18
-      uses: actions/setup-go@v3
-      id: go
-      with:
-        go-version: 1.18
-    - name: Build
+    - name: Build LedFx
       run: |
 
-        go build -o "windows-amd64-latest" -v
+        go build -o "windows-amd64-latest.exe" -v
