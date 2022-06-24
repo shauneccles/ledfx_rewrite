@@ -31,11 +31,9 @@ jobs:
             
     - name: Grab Aubio
       run: |
-        curl -o aubio.zip https://aubio.org/bin/0.4.6/aubio-0.4.6-win64.zip
+        curl -o aubio.zip https://www.ledfx.app/downloads/aubio-0.5.0-alpha-win64.zip
         unzip aubio.zip
-        ls
-        mv aubio-0.4.6-win64/* C:/Users/RUNNER~1/AppData/Local/Temp/
-        ls aubio-0.4.6-win64/
+        mv aubio-0.5.0-alpha-win64/* C:/Users/RUNNER~1/AppData/Local/Temp/
         ls C:/Users/RUNNER~1/AppData/Local/Temp/
     - name: Checkout Code
       uses: actions/checkout@v3
