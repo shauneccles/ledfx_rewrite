@@ -46,8 +46,15 @@ jobs:
          export CGO_ENABLED=1
          go env
          go build -o 'windows-amd64-latest.exe' -v
+    - name: Package LedFx
+      run: |
+         mkdir LedFx_${{ github.sha }}
+         mv windows-amd64-latest.exe LedFx_${{ github.sha }}
+         cp C:/Users/RUNNER~1/AppData/Local/Temp/bin/libaubio-5.dll LedFx_${{ github.sha }}/
+         curl -o libportaudio.dll https://github.com/spatialaudio/portaudio-binaries/raw/master/libportaudio64bit.dll
+         mv libportaudio.dll LedFx_${{ github.sha }}
     - name: Upload LedFx Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: windows-amd64-latest.exe
-        path: ./windows-amd64-latest.exe
+        name: windows-amd64-latest.zip
+        path: LedFx_${{ github.sha }}/
