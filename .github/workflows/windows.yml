@@ -25,10 +25,17 @@ jobs:
             mingw-w64-x86_64-go
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-portaudio
+            mingw-w64-x86_64-waf
+            mingw-w64-x86_64-ffmpeg
     - name: Checkout Code
       uses: actions/checkout@v3
       with:
         submodules: true
+    - name: Build Aubio
+      run: |
+        git clone https://git.aubio.org/aubio/aubio
+        waf aubio/configure
+        waf aubio/build
     - name: Build LedFx
       run: |
 
