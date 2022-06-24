@@ -33,6 +33,7 @@ jobs:
       run: |
         git clone https://git.aubio.org/aubio/aubio
         cd aubio
+        export CC=x86_64-w64-mingw32-gcc
         waf distclean configure build install --disable-samplerate --disable-jack --disable-flac --disable-sndfile --disable-avcodec --notests
     - name: Checkout Code
       uses: actions/checkout@v3
