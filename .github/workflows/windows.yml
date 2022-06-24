@@ -34,7 +34,6 @@ jobs:
         curl -o aubio.zip https://www.ledfx.app/downloads/aubio-0.5.0-alpha-win64.zip
         unzip aubio.zip
         mv aubio-0.5.0-alpha-win64/* C:/Users/RUNNER~1/AppData/Local/Temp/
-        ls C:/Users/RUNNER~1/AppData/Local/Temp/
     - name: Checkout Code
       uses: actions/checkout@v3
       with:
@@ -48,10 +47,11 @@ jobs:
          go build -o 'windows-amd64-${{ github.sha }}.exe' -v
     - name: Package LedFx
       run: |
+         export CYGPATH=$(cygpath -m /)
          mkdir LedFx_Builds/
          mv windows-amd64-${{ github.sha }}.exe LedFx_Builds/
          cp C:/Users/RUNNER~1/AppData/Local/Temp/bin/libaubio-5.dll LedFx_Builds/
-         cp ${{ runner.temp }}/mingw64/bin/libportaudio.dll LedFx_Builds/
+         cp $CYGPATH/mingw64/bin/libportaudio.dll LedFx_Builds/
     - name: Upload LedFx Artifact
       uses: actions/upload-artifact@v3
       with:
