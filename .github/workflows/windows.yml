@@ -36,9 +36,9 @@ jobs:
     - name: Get Aubio Files
       run: |
         git clone https://git.aubio.org/aubio/aubio aubio-src
-        mv aubio-src/src '${{github.workspace}}/aubio'
+        mv aubio-src/src '${{github.workspace}}\aubio'
 
     - name: Build LedFx
       run: |
-        set CPLUS_INCLUDE_PATH='${{github.workspace}}/aubio'
+        set CPLUS_INCLUDE_PATH='${{github.workspace}}\aubio'
         go build -o "windows-amd64-latest.exe" -v
