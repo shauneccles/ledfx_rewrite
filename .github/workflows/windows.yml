@@ -29,6 +29,7 @@ jobs:
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-portaudio
             mingw-w64-x86_64-ffmpeg
+            mingw-w64-clang-x86_64-ffmpeg
             mingw-w64-x86_64-waf
     - name: Build Aubio
       run: |
