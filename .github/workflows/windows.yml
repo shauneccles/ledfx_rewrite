@@ -27,14 +27,15 @@ jobs:
             mingw-w64-x86_64-go
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-portaudio
-            mingw-w64-x86_64-waf
             
-    - name: Build Aubio
+    - name: Grab Aubio
       run: |
-        git clone https://git.aubio.org/aubio/aubio
-        cd aubio
-        export CC=x86_64-w64-mingw32-gcc
-        waf distclean configure build install --disable-samplerate --disable-jack --disable-flac --disable-sndfile --disable-avcodec --notests
+        curl -o aubio.zip https://aubio.org/bin/0.4.6/aubio-0.4.6-win64.zip
+        unzip aubio.zip
+        ls
+        mv aubio-0.4.6-win64/* C:/Users/RUNNER~1/AppData/Local/Temp/
+        ls aubio-0.4.6-win64/
+        ls C:/Users/RUNNER~1/AppData/Local/Temp/
     - name: Checkout Code
       uses: actions/checkout@v3
       with:
