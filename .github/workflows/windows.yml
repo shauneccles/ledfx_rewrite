@@ -17,22 +17,25 @@ jobs:
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
-        # For speed + caching no need to update
-        update: false
+
+        update: true
         install: |
             git
             make
-            mingw-w64-x86_64-waf
-            mingw-w64-x86_64-ffmpeg
+
+            
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-go
             mingw-w64-x86_64-pkg-config
             mingw-w64-x86_64-portaudio
+            mingw-w64-x86_64-ffmpeg
+            mingw-w64-x86_64-waf
     - name: Build Aubio
       run: |
         git clone https://git.aubio.org/aubio/aubio
         cd aubio
-        make
+        waf configure
+        waf build
     - name: Checkout Code
       uses: actions/checkout@v3
       with:
