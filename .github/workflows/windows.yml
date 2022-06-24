@@ -17,7 +17,8 @@ jobs:
       uses: msys2/setup-msys2@v2
       with:
         msystem: MINGW64
-        update: true
+        # For speed + caching no need to update
+        update: false
         install: |
             git
             make
@@ -31,13 +32,14 @@ jobs:
       uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Build Aubio
+    - name: Get Aubio Files
       run: |
-        git clone https://git.aubio.org/aubio/aubio
-        cd aubio
-        waf configure
-        waf build
+        git clone https://git.aubio.org/aubio/aubio aubio-src
+        mv aubio-src/src ${{github.workspace}}/aubio
+        pwd
+        ls ${{github.workspace}}/aubio
+        set CPLUS_INCLUDE_PATH=${{github.workspace}}/aubio/
     - name: Build LedFx
       run: |
-
+        
         go build -o "windows-amd64-latest.exe" -v
