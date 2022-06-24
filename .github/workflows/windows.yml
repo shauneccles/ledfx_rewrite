@@ -34,8 +34,9 @@ jobs:
     - name: Build Aubio
       run: |
         git clone https://git.aubio.org/aubio/aubio
-        waf aubio/configure
-        waf aubio/build
+        cd aubio
+        waf configure
+        waf build
     - name: Build LedFx
       run: |
 
