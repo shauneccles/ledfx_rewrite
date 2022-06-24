@@ -117,7 +117,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2022-06-24T09:10:21.433Z",
-    "modified": "2022-06-24T13:59:46.082Z",
+    "modified": "2022-06-24T14:53:53.819Z",
     "headers": [],
     "params": [],
     "body": {
@@ -348,7 +348,7 @@
     "method": "PUT",
     "sortNum": 5000,
     "created": "2022-06-24T09:10:21.443Z",
-    "modified": "2022-06-24T14:09:08.034Z",
+    "modified": "2022-06-24T15:15:49.328Z",
     "headers": [
       {
         "name": "Content-Type",
@@ -358,7 +358,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"id\": \"energy0\",\n    \"base_config\": {\"decay\": 0.8, \"vocals\": true, \"freq_max\": 5000, \"freq_min\": 500}\n}",
+      "raw": "{\n    \"id\": \"energy0\",\n    \"base_config\": {\"blur\": 1, \"decay\": 0.8, \"freq_min\": 3000, \"palette\": \"rainbow\", \"mirror\": true}\n}",
       "form": []
     },
     "tests": []
@@ -372,7 +372,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-06-24T09:10:21.444Z",
-    "modified": "2022-06-24T13:59:25.645Z",
+    "modified": "2022-06-24T14:53:27.188Z",
     "headers": [
       {
         "name": "Content-Type",
