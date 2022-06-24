@@ -40,8 +40,8 @@ jobs:
         submodules: true
     - name: Build LedFx
       run: |
-         set CGO_CFLAGS='-I%TEMP%\include' 
-         set CGO_LDFLAGS='-L%TEMP%\lib' 
-         set CGO_ENABLED=1
+         export CGO_CFLAGS='-I%TEMP%\include'
+         export CGO_LDFLAGS='-L%TEMP%\lib' 
+         export CGO_ENABLED=1
          go env
          go build -o 'windows-amd64-latest.exe' -v
